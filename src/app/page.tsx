@@ -803,10 +803,10 @@ export default function Home() {
 
                 <div className="mt-4">
                   <a
-                    href="/admin/login"
+                    href="/admin/dashboard"
                     className="text-sm text-[#f0ede8]/50 transition hover:text-white"
                   >
-                    Admin Login →
+                    Admin Dashboard →
                   </a>
                 </div>
               </div>

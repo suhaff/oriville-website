@@ -227,57 +227,13 @@ export default function Navbar() {
 
           </div>
 
-          {/* =================================================
-              ADMIN
-          ================================================== */}
-
+          {/* Login */}
           <Link
-            href="/admin/dashboard"
-            className="
-              font-display
-              border
-              border-[#f0ede8]/20
-              px-[18px]
-              py-2
-              text-[14px]
-              font-semibold
-              uppercase
-              tracking-[0.12em]
-              text-[#f0ede8]
-              transition-all
-              duration-300
-              hover:border-[#f0ede8]/60
-              hover:bg-white/[0.04]
-            "
+            href="/login"
+            className="font-display px-[22px] py-2.5 text-[14px] font-bold uppercase tracking-[0.14em] text-white transition hover:opacity-85"
+            style={{ backgroundColor: RED }}
           >
-            Admin
-          </Link>
-
-          {/* =================================================
-              JOIN NOW
-          ================================================== */}
-
-          <Link
-            href="#pricing"
-            className="
-              font-display
-              px-[22px]
-              py-2.5
-              text-[14px]
-              font-bold
-              uppercase
-              tracking-[0.14em]
-              text-white
-              transition-all
-              duration-300
-              hover:-translate-y-0.5
-              hover:shadow-[0_8px_25px_rgba(204,20,20,0.25)]
-            "
-            style={{
-              backgroundColor: RED,
-            }}
-          >
-            Join Now
+            Log In
           </Link>
 
         </div>
@@ -368,49 +324,12 @@ export default function Navbar() {
           {/* Admin */}
 
           <Link
-            href="/admin/dashboard"
-            onClick={closeMobileMenu}
-            className="
-              block
-              border-b
-              border-[#1c1c1c]
-              py-4
-              font-display
-              text-lg
-              font-semibold
-              uppercase
-              tracking-[0.12em]
-              text-[#f0ede8]
-              transition-colors
-              hover:text-[#c8952a]
-            "
+            href="/login"
+            onClick={() => setMobileOpen(false)}
+            className="block border-b border-[#1c1c1c] py-2.5 font-display text-lg font-bold uppercase tracking-[0.12em]"
+            style={{ color: RED }}
           >
-            Admin
-          </Link>
-
-          {/* Join */}
-
-          <Link
-            href="#pricing"
-            onClick={closeMobileMenu}
-            className="
-              block
-              border-b
-              border-[#1c1c1c]
-              py-4
-              font-display
-              text-lg
-              font-bold
-              uppercase
-              tracking-[0.12em]
-              transition-opacity
-              hover:opacity-80
-            "
-            style={{
-              color: RED,
-            }}
-          >
-            Join Now
+            Log In
           </Link>
 
           {/* =================================================

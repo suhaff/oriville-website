@@ -1,0 +1,232 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700;1,900&family=Barlow:wght@400;500;600&display=swap");
+
+@import "tailwindcss";
+
+/*
+|--------------------------------------------------------------------------
+| ORVILLE GYM — DESIGN TOKENS
+|--------------------------------------------------------------------------
+*/
+
+@theme {
+  --color-background: #0a0a0a;
+  --color-foreground: #f0ede8;
+
+  --color-card: #131313;
+  --color-card-foreground: #f0ede8;
+
+  --color-primary: #e8ff00;
+  --color-primary-foreground: #0a0a0a;
+
+  --color-secondary: #1c1c1c;
+  --color-secondary-foreground: #f0ede8;
+
+  --color-muted: #222222;
+  --color-muted-foreground: #888888;
+
+  --color-accent: #e8ff00;
+  --color-accent-foreground: #0a0a0a;
+
+  --color-border: #2a2a2a;
+
+  --font-display: "Barlow Condensed", sans-serif;
+  --font-body: "Barlow", sans-serif;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Brand Colors
+|--------------------------------------------------------------------------
+*/
+
+:root {
+  --orville-black: #0a0a0a;
+  --orville-red: #cc1414;
+  --orville-gold: #c8952a;
+  --orville-silver: #a8a8a8;
+
+  --orville-white: #f0ede8;
+
+  --orville-card: #131313;
+  --orville-card-light: #1c1c1c;
+
+  --orville-border: #2a2a2a;
+
+  --orville-muted: #888888;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Global Reset
+|--------------------------------------------------------------------------
+*/
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color: var(--orville-black);
+  color: var(--orville-white);
+  font-family: "Barlow", sans-serif;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Typography
+|--------------------------------------------------------------------------
+*/
+
+.font-display {
+  font-family: "Barlow Condensed", sans-serif;
+}
+
+.font-body {
+  font-family: "Barlow", sans-serif;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Selection
+|--------------------------------------------------------------------------
+*/
+
+::selection {
+  background: var(--orville-red);
+  color: #ffffff;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Scrollbar
+|--------------------------------------------------------------------------
+*/
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+* {
+  scrollbar-width: none;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Links
+|--------------------------------------------------------------------------
+*/
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Buttons
+|--------------------------------------------------------------------------
+*/
+
+button {
+  font: inherit;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Images
+|--------------------------------------------------------------------------
+*/
+
+img {
+  max-width: 100%;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Focus Accessibility
+|--------------------------------------------------------------------------
+*/
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--orville-gold);
+  outline-offset: 3px;
+}
+
+/*
+|--------------------------------------------------------------------------
+| Mobile Navigation
+|--------------------------------------------------------------------------
+*/
+
+@media (max-width: 767px) {
+  .desktop-nav {
+    display: none;
+  }
+
+  .mobile-menu-button {
+    display: flex;
+  }
+}
+
+@media (min-width: 768px) {
+  .desktop-nav {
+    display: flex;
+  }
+
+  .mobile-menu-button {
+    display: none;
+  }
+}
+
+/*
+|--------------------------------------------------------------------------
+| Orville Utilities
+|--------------------------------------------------------------------------
+*/
+
+.orville-red {
+  color: var(--orville-red);
+}
+
+.orville-gold {
+  color: var(--orville-gold);
+}
+
+.orville-silver {
+  color: var(--orville-silver);
+}
+
+.orville-border {
+  border-color: var(--orville-border);
+}
+
+.orville-card {
+  background-color: var(--orville-card);
+}
+
+.orville-container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding-left: 32px;
+  padding-right: 32px;
+}
+
+@media (max-width: 767px) {
+  .orville-container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}

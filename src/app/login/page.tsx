@@ -3,11 +3,36 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function ClientLoginPage() {
   const [activeTab, setActiveTab] = useState<"signin" | "register">("signin");
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  
+  // Track inputs to mock role-based login
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  
+  const router = useRouter();
+
+  // Smart Login Handler
+  const handleLogin = (e: React.FormEvent) => {
+    e.preventDefault(); 
+    
+    // MOCK ROLE CHECK: Admin
+    if (email.toLowerCase() === "admin@orvillegym.com") {
+      router.push("/admin/dashboard");
+    } 
+    // MOCK ROLE CHECK: Member/User
+    else if (email.toLowerCase() === "abc.com" && password === "12345") {
+      router.push("/user/dashboard");
+    } 
+    // Fallback for anything else
+    else {
+      alert("Invalid credentials. Try abc.com / 12345 or admin@orvillegym.com");
+    }
+  };
 
   return (
     <main className="flex min-h-screen bg-[#0a0a0a] font-sans text-[#f0ede8]">
@@ -103,14 +128,17 @@ export default function ClientLoginPage() {
                 Sign in to manage your membership, book classes, and track your progress.
               </p>
 
-              <form className="space-y-6">
+              <form className="space-y-6" onSubmit={handleLogin}>
                 <div>
                   <label className="mb-2 block text-[10px] font-bold uppercase tracking-[0.2em] text-[#c8952a]">
                     Email Address
                   </label>
                   <input
-                    type="email"
-                    placeholder="you@example.com"
+                    type="text"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="you@example.com (Try: abc.com)"
+                    required
                     className="w-full border border-[#1a1a1a] bg-[#111111] px-4 py-3.5 text-sm text-white placeholder-gray-600 transition focus:border-[#c8952a] focus:outline-none"
                   />
                 </div>
@@ -122,7 +150,10 @@ export default function ClientLoginPage() {
                   <div className="relative">
                     <input
                       type={showPassword ? "text" : "password"}
-                      placeholder="Your password"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      placeholder="Your password (Try: 12345)"
+                      required
                       className="w-full border border-[#1a1a1a] bg-[#111111] px-4 py-3.5 pr-20 text-sm text-white placeholder-gray-600 transition focus:border-[#c8952a] focus:outline-none"
                     />
                     <button

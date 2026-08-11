@@ -118,7 +118,7 @@ export default function Navbar() {
       "
     >
       {/* =====================================================
-          MAIN NAVIGATION
+         MAIN NAVIGATION
       ====================================================== */}
 
       <div className="mx-auto flex h-[76px] max-w-[1280px] items-center justify-between px-5 md:px-8">
@@ -227,11 +227,29 @@ export default function Navbar() {
 
           </div>
 
-          {/* Login */}
+          {/* =================================================
+              LOG IN
+          ================================================== */}
+
           <Link
             href="/login"
-            className="font-display px-[22px] py-2.5 text-[14px] font-bold uppercase tracking-[0.14em] text-white transition hover:opacity-85"
-            style={{ backgroundColor: RED }}
+            className="
+              font-display
+              px-[22px]
+              py-2.5
+              text-[14px]
+              font-bold
+              uppercase
+              tracking-[0.14em]
+              text-white
+              transition-all
+              duration-300
+              hover:-translate-y-0.5
+              hover:shadow-[0_8px_25px_rgba(204,20,20,0.25)]
+            "
+            style={{
+              backgroundColor: RED,
+            }}
           >
             Log In
           </Link>
@@ -274,7 +292,7 @@ export default function Navbar() {
       </div>
 
       {/* =====================================================
-          MOBILE NAVIGATION
+         MOBILE NAVIGATION
       ====================================================== */}
 
       <div
@@ -321,13 +339,27 @@ export default function Navbar() {
             </Link>
           ))}
 
-          {/* Admin */}
+          {/* Log In */}
 
           <Link
             href="/login"
-            onClick={() => setMobileOpen(false)}
-            className="block border-b border-[#1c1c1c] py-2.5 font-display text-lg font-bold uppercase tracking-[0.12em]"
-            style={{ color: RED }}
+            onClick={closeMobileMenu}
+            className="
+              block
+              border-b
+              border-[#1c1c1c]
+              py-4
+              font-display
+              text-lg
+              font-bold
+              uppercase
+              tracking-[0.12em]
+              transition-opacity
+              hover:opacity-80
+            "
+            style={{
+              color: RED,
+            }}
           >
             Log In
           </Link>

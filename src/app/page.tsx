@@ -33,13 +33,23 @@ const programs = [
 
 const memberships = [
   {
+    name: "DROP-IN",
+    price: "₹500",
+    period: "/ SESSION",
+    description:
+      "Perfect for visitors and occasional training.",
+    features: [
+      "Single gym session",
+      "Full equipment access",
+      "No commitment",
+    ],
+  },
+  {
     name: "MONTHLY",
     price: "₹2,500",
     period: "/ MONTH",
-    originalPrice: null,
-    discount: null,
     description:
-      "Our flexible option for members who want consistent training without a long-term commitment.",
+      "Our most popular option for consistent training.",
     features: [
       "Unlimited gym access",
       "All standard equipment",
@@ -49,37 +59,18 @@ const memberships = [
     popular: true,
   },
   {
-    name: "HALF YEAR",
-    price: "₹12,000",
-    period: "/ 6 MONTHS",
-    originalPrice: "₹15,000",
-    discount: "20% OFF",
+    name: "ELITE",
+    price: "₹5,000",
+    period: "/ MONTH",
     description:
-      "Commit to six months of training and save 20% compared with monthly membership.",
+      "For athletes who want the complete Orville experience.",
     features: [
-      "Everything in Monthly",
-      "20% membership savings",
+      "Unlimited gym access",
+      "Personal training sessions",
       "Priority class booking",
-      "Member-only sessions",
-    ],
-    popular: false,
-  },
-  {
-    name: "FULL YEAR",
-    price: "₹18,000",
-    period: "/ YEAR",
-    originalPrice: "₹30,000",
-    discount: "40% OFF",
-    description:
-      "Our best long-term value for members ready to make training part of their lifestyle.",
-    features: [
-      "Everything in Monthly",
-      "40% membership savings",
-      "Priority class booking",
-      "Performance tracking",
       "Nutrition guidance",
+      "Performance tracking",
     ],
-    popular: false,
   },
 ];
 
@@ -198,7 +189,7 @@ export default function Home() {
       <Navbar />
 
       {/* =====================================================
-          HERO
+         HERO
       ====================================================== */}
 
       <section
@@ -231,39 +222,31 @@ export default function Home() {
           <div className="max-w-[1000px]">
 
             {/* Eyebrow */}
-            <div className="mb-7 flex flex-wrap items-center gap-4 font-display text-xs font-bold uppercase tracking-[0.2em] text-[#f0ede8]/65 md:text-sm">
-              <span>EST. 2011</span>
-
-              <span className="h-1 w-1 rounded-full bg-[#cc1414]" />
-
-              <span>DOWNTOWN</span>
-
-              <span className="h-1 w-1 rounded-full bg-[#cc1414]" />
-
-              <span>OPEN 06:00 — 23:00</span>
+            <div className="mb-7 flex flex-wrap items-center gap-4 font-display text-xs font-bold uppercase tracking-[0.2em] text-[#c8952a] md:text-sm">
+              <span>EST. 2011 · DOWNTOWN · OPEN XAM–XPM</span>
             </div>
 
           {/* Heading */}
           <div className="orville-hero-title">
             <h1 className="font-display text-[clamp(64px,11vw,170px)] font-black uppercase leading-[0.78] tracking-[-0.045em]">
 
-              {/* Strength slides UP */}
+              {/* Strength */}
               <span className="orville-word-mask block">
-                <span className="orville-strength block text-[#f0ede8]">
+                <span className="orville-strength block text-[#c8952a]">
                   STRENGTH.
                 </span>
               </span>
 
-              {/* Discipline stays in place */}
+              {/* Discipline */}
               <span className="orville-word-mask block">
-                <span className="orville-discipline block text-[#cc1414]">
+                <span className="orville-discipline block text-[#c1c1c1]">
                   DISCIPLINE.
                 </span>
               </span>
 
-              {/* Destiny slides DOWN */}
+              {/* Destiny */}
               <span className="orville-word-mask block">
-                <span className="orville-destiny block text-[#f0ede8]">
+                <span className="orville-destiny block text-[#cc1414]">
                   DESTINY.
                 </span>
               </span>
@@ -272,10 +255,9 @@ export default function Home() {
           </div>
 
             {/* Description */}
-            <p className="mt-10 max-w-[570px] text-base leading-7 text-[#f0ede8]/65 md:text-lg">
-              A serious training environment for people who
-              refuse to settle. Build strength, sharpen your
-              discipline, and become something stronger.
+            <p className="mt-10 max-w-[570px] text-base leading-7 text-[#f0ede8]/80 md:text-lg">
+              World-class equipment. Expert coaches. A community
+              that pushes you further than you thought possible.
             </p>
 
             {/* Buttons */}
@@ -313,7 +295,7 @@ export default function Home() {
       </section>
 
       {/* =====================================================
-          PHILOSOPHY
+         PHILOSOPHY
       ====================================================== */}
 
       <section className="border-b border-white/[0.07] bg-[#0a0a0a]">
@@ -349,7 +331,76 @@ export default function Home() {
       </section>
 
       {/* =====================================================
-          PROGRAMS
+         PROGRAMS
+      ====================================================== */}
+
+      <section
+        id="programs"
+        className="border-b border-white/[0.07] bg-[#0d0d0d]"
+      >
+        <div className="mx-auto max-w-[1280px] px-5 py-24 md:px-8 md:py-32">
+
+          <div className="mb-14 flex flex-col justify-between gap-6 md:flex-row md:items-end">
+            <div>
+              <p className="font-display text-xs font-bold uppercase tracking-[0.2em] text-[#cc1414]">
+                What We Do
+              </p>
+
+              <h2 className="mt-3 font-display text-6xl font-black uppercase leading-[0.85] tracking-[-0.04em] md:text-8xl">
+                PROGRAMS.
+              </h2>
+            </div>
+
+            <p className="max-w-[400px] text-sm leading-6 text-[#f0ede8]/50">
+              Choose your path. Train with purpose. Every program
+              is designed to make you stronger.
+            </p>
+          </div>
+
+          <div className="grid overflow-hidden border border-white/[0.08] bg-white/[0.08] md:grid-cols-3">
+            {programs.map((program) => (
+              <article
+                key={program.number}
+                className="group relative border-b border-white/[0.08] bg-[#111111] p-8 transition hover:bg-[#161616] md:border-b-0 md:border-r last:md:border-r-0 md:p-10"
+              >
+                <span className="font-display text-sm font-bold tracking-[0.18em] text-[#c8952a]">
+                  {program.number}
+                </span>
+
+                <div className="mt-24">
+                  <h3 className="font-display text-6xl font-black uppercase leading-[0.8] tracking-[-0.035em]">
+                    {program.title}
+                  </h3>
+
+                  <h4 className="font-display text-4xl font-black uppercase leading-none text-[#cc1414]">
+                    {program.subtitle}
+                  </h4>
+                </div>
+
+                <p className="mt-8 min-h-[100px] text-sm leading-6 text-[#f0ede8]/50">
+                  {program.description}
+                </p>
+
+                <a
+                  href="#contact"
+                  className="mt-8 inline-flex items-center gap-3 font-display text-sm font-bold uppercase tracking-[0.14em] text-[#f0ede8] transition group-hover:text-[#cc1414]"
+                >
+                  Learn More
+
+                  <span className="transition-transform group-hover:translate-x-1">
+                    →
+                  </span>
+                </a>
+
+                <div className="absolute bottom-0 left-0 h-[3px] w-0 bg-[#cc1414] transition-all duration-300 group-hover:w-full" />
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* =====================================================
+         PRICING
       ====================================================== */}
 
       <section
@@ -363,138 +414,72 @@ export default function Home() {
               Membership
             </p>
 
-            <h2 className="mt-3 font-display text-6xl font-black uppercase leading-[0.85] tracking-[-0.04em] text-[#f0ede8] md:text-8xl">
+            <h2 className="mt-3 font-display text-6xl font-black uppercase leading-[0.85] tracking-[-0.04em] md:text-8xl">
               PRICING.
             </h2>
-
-            <p className="mt-6 max-w-[560px] text-sm leading-6 text-[#f0ede8]/50 md:text-base">
-              Choose your level of commitment. The longer you stay committed,
-              the more you save.
-            </p>
           </div>
 
           <div className="grid gap-5 md:grid-cols-3">
             {memberships.map((membership) => (
               <article
                 key={membership.name}
-                className={`
-                  pricing-card
-                  group
-                  relative
-                  flex
-                  min-h-[570px]
-                  flex-col
-                  overflow-hidden
-                  border
-                  p-8
-                  md:p-10
-                  ${
-                    membership.popular
-                      ? "pricing-card-popular"
-                      : "border-white/[0.09] bg-[#0d0d0d]"
-                  }
-                `}
+                className={`relative flex flex-col border p-8 md:p-10 ${
+                  membership.popular
+                    ? "border-[#cc1414] bg-[#111111]"
+                    : "border-white/[0.09] bg-[#0d0d0d]"
+                }`}
               >
                 {membership.popular && (
-                  <>
-                    <div className="pricing-orbit" aria-hidden="true" />
-                    <div className="pricing-card-inner" aria-hidden="true" />
-                  </>
+                  <div className="absolute right-5 top-5 bg-[#cc1414] px-3 py-1.5 font-display text-[11px] font-bold uppercase tracking-[0.14em] text-white">
+                    Most Popular
+                  </div>
                 )}
 
-                <div className="relative z-10 flex h-full flex-col">
+                <p className="font-display text-sm font-bold uppercase tracking-[0.16em] text-[#c8952a]">
+                  {membership.name}
+                </p>
 
-                  <div className="flex items-start justify-between gap-4">
-                    <p className="font-display text-sm font-bold uppercase tracking-[0.16em] text-[#c8952a]">
-                      {membership.name}
-                    </p>
+                <div className="mt-8">
+                  <span className="font-display text-6xl font-black tracking-[-0.04em]">
+                    {membership.price}
+                  </span>
 
-                    {membership.popular && (
-                      <span className="pricing-badge shrink-0 bg-[#cc1414] px-3 py-1.5 font-display text-[10px] font-black uppercase tracking-[0.14em] text-white">
-                        Most Popular
-                      </span>
-                    )}
-
-                    {membership.discount && !membership.popular && (
-                      <span className="shrink-0 border border-[#7a2020]/60 bg-[#321010] px-3 py-1.5 font-display text-[10px] font-black uppercase tracking-[0.14em] text-[#d66a6a]">
-                        {membership.discount}
-                      </span>
-                    )}
-                  </div>
-
-                  <div className="mt-10">
-                    <div className="flex flex-wrap items-baseline gap-3">
-                      <span className="font-display text-5xl font-black tracking-[-0.04em] text-[#f0ede8] md:text-6xl">
-                        {membership.price}
-                      </span>
-
-                      <span className="font-display text-xs font-bold uppercase tracking-[0.12em] text-[#f0ede8]/40">
-                        {membership.period}
-                      </span>
-                    </div>
-
-                    {membership.originalPrice && (
-                      <div className="mt-4 flex items-center gap-3">
-                        <span className="text-sm text-[#f0ede8]/25 line-through">
-                          {membership.originalPrice}
-                        </span>
-
-                        <span className="font-display text-xs font-bold uppercase tracking-[0.12em] text-[#c95c5c]">
-                          {membership.discount}
-                        </span>
-                      </div>
-                    )}
-                  </div>
-
-                  <p className="mt-6 min-h-[72px] max-w-[430px] text-sm leading-6 text-[#f0ede8]/50">
-                    {membership.description}
-                  </p>
-
-                  <div className="my-8 h-px bg-white/[0.08]" />
-
-                  <ul className="flex-1 space-y-4">
-                    {membership.features.map((feature) => (
-                      <li
-                        key={feature}
-                        className="flex gap-3 text-sm text-[#f0ede8]/70 transition-colors duration-300 group-hover:text-[#f0ede8]/90"
-                      >
-                        <span className="font-bold text-[#cc1414] transition-all duration-300 group-hover:text-[#a63a3a]">
-                          +
-                        </span>
-                        <span>{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-
-                  <div className="mt-10">
-                    <a
-                      href="#contact"
-                      className={`
-                        pricing-button
-                        font-display
-                        relative
-                        block
-                        w-full
-                        overflow-hidden
-                        border
-                        px-6
-                        py-4
-                        text-center
-                        text-sm
-                        font-black
-                        uppercase
-                        tracking-[0.15em]
-                        ${
-                          membership.popular
-                            ? "pricing-button-primary"
-                            : "pricing-button-secondary"
-                        }
-                      `}
-                    >
-                      <span className="relative z-10">Choose Plan</span>
-                    </a>
-                  </div>
+                  <span className="ml-2 font-display text-sm font-bold uppercase tracking-[0.12em] text-[#f0ede8]/40">
+                    {membership.period}
+                  </span>
                 </div>
+
+                <p className="mt-5 min-h-[48px] text-sm leading-6 text-[#f0ede8]/50">
+                  {membership.description}
+                </p>
+
+                <div className="my-8 h-px bg-white/[0.08]" />
+
+                <ul className="flex-1 space-y-4">
+                  {membership.features.map((feature) => (
+                    <li
+                      key={feature}
+                      className="flex gap-3 text-sm text-[#f0ede8]/70"
+                    >
+                      <span className="text-[#cc1414]">
+                        +
+                      </span>
+
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <a
+                  href="#contact"
+                  className={`mt-10 block w-full px-6 py-3.5 text-center font-display text-sm font-bold uppercase tracking-[0.15em] transition ${
+                    membership.popular
+                      ? "bg-[#cc1414] text-white hover:bg-[#e01a1a]"
+                      : "border border-white/15 text-[#f0ede8] hover:border-white/40"
+                  }`}
+                >
+                  Choose Plan
+                </a>
               </article>
             ))}
           </div>
@@ -502,7 +487,7 @@ export default function Home() {
       </section>
 
       {/* =====================================================
-          CONTACT
+         CONTACT
       ====================================================== */}
 
       <section
@@ -728,7 +713,7 @@ export default function Home() {
       </section>
 
       {/* =====================================================
-          FOOTER
+         FOOTER
       ====================================================== */}
 
       <footer className="bg-[#080808]">

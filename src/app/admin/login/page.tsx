@@ -13,30 +13,30 @@ export default function AdminLoginPage() {
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
-function handleSubmit(event: FormEvent<HTMLFormElement>) {
-  event.preventDefault();
+  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    
+    setError("");
+    setIsLoading(true);
 
-  console.log("LOGIN BUTTON WORKED");
-  console.log("Email:", email);
-  console.log("Password:", password);
-
-  if (
-    email.trim().toLowerCase() === "admin@orvillegym.com" &&
-    password === "orville123"
-  ) {
-    console.log("CREDENTIALS CORRECT");
-    router.push("/admin/dashboard");
-  } else {
-    console.log("CREDENTIALS INCORRECT");
-    setError("Invalid email or password.");
+    setTimeout(() => {
+      if (
+        email.trim().toLowerCase() === "admin@orvillegym.com" &&
+        password === "orville123"
+      ) {
+        router.push("/admin/dashboard");
+      } else {
+        setError("Invalid email or password.");
+        setIsLoading(false);
+      }
+    }, 800);
   }
-}
 
   return (
-    <main className="flex min-h-screen items-center justify-center bg-[#080909] px-6 py-12 text-[#f4f4f1]">
+    <main className="flex min-h-screen items-center justify-center bg-[#0a0a0a] px-6 py-12 text-[#f0ede8] font-sans">
       {/* Background glow */}
       <div className="pointer-events-none fixed inset-0">
-        <div className="absolute left-1/2 top-1/4 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-[#d7ff3f]/5 blur-[120px]" />
+        <div className="absolute left-1/2 top-1/4 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-[#e62020]/10 blur-[120px]" />
       </div>
 
       <div className="relative w-full max-w-[440px]">
@@ -44,53 +44,53 @@ function handleSubmit(event: FormEvent<HTMLFormElement>) {
         <div className="mb-8">
           <Link
             href="/"
-            className="text-sm text-[#929894] transition hover:text-white"
+            className="text-xs font-bold tracking-[0.15em] text-gray-400 transition hover:text-white uppercase"
           >
-            ← Back to website
+            ← Back to Site
           </Link>
         </div>
 
         {/* Login Card */}
-        <div className="rounded-[22px] border border-[#252929] bg-[#111313] p-8 shadow-2xl md:p-10">
+        <div className="border border-[#1a1a1a] bg-[#111111] p-8 shadow-2xl md:p-10">
           {/* Logo */}
           <div className="mb-8">
             <Link
               href="/"
-              className="text-[24px] font-black tracking-[-1px]"
+              className="text-[24px] font-black tracking-[0.1em] uppercase"
             >
-              <span className="text-[#d7ff3f]">ORVILLE</span> GYM
+              <span className="text-[#e62020]">ORVILLE</span> GYM
             </Link>
           </div>
 
           {/* Heading */}
           <div className="mb-8">
-            <p className="mb-2 text-xs font-extrabold uppercase tracking-[2px] text-[#d7ff3f]">
+            <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.2em] text-[#c8952a]">
               Administration
             </p>
 
-            <h1 className="text-3xl font-black tracking-[-1px]">
-              Welcome back.
+            <h1 className="text-3xl font-black uppercase tracking-wide text-white">
+              Welcome Back.
             </h1>
 
-            <p className="mt-2 text-sm leading-6 text-[#929894]">
+            <p className="mt-2 text-sm leading-6 text-gray-400">
               Sign in to manage your gym.
             </p>
           </div>
 
           {/* Error */}
           {error && (
-            <div className="mb-5 rounded-[10px] border border-[#5a2525] bg-[#2a1111] px-4 py-3 text-sm text-[#ff7777]">
+            <div className="mb-5 border border-[#e62020]/40 bg-[#e62020]/10 px-4 py-3 text-xs font-bold tracking-widest uppercase text-[#e62020] animate-in fade-in slide-in-from-top-2">
               {error}
             </div>
           )}
 
           {/* Form */}
-          <form onSubmit={handleSubmit} className="space-y-5">
+          <form onSubmit={handleSubmit} className="space-y-6">
             {/* Email */}
             <div>
               <label
                 htmlFor="email"
-                className="mb-2 block text-sm font-medium text-[#d0d4d0]"
+                className="mb-2 block text-[10px] font-bold uppercase tracking-[0.2em] text-[#c8952a]"
               >
                 Email address
               </label>
@@ -103,7 +103,7 @@ function handleSubmit(event: FormEvent<HTMLFormElement>) {
                 placeholder="admin@orvillegym.com"
                 autoComplete="email"
                 disabled={isLoading}
-                className="w-full rounded-[10px] border border-[#252929] bg-[#090a0a] px-4 py-3 text-sm text-white outline-none placeholder:text-[#555b57] transition focus:border-[#d7ff3f] disabled:cursor-not-allowed disabled:opacity-60"
+                className="w-full border border-[#1a1a1a] bg-[#0a0a0a] px-4 py-3.5 text-sm text-white outline-none placeholder:text-gray-600 transition focus:border-[#c8952a] disabled:cursor-not-allowed disabled:opacity-60"
               />
             </div>
 
@@ -112,7 +112,7 @@ function handleSubmit(event: FormEvent<HTMLFormElement>) {
               <div className="mb-2 flex items-center justify-between">
                 <label
                   htmlFor="password"
-                  className="text-sm font-medium text-[#d0d4d0]"
+                  className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#c8952a]"
                 >
                   Password
                 </label>
@@ -120,7 +120,7 @@ function handleSubmit(event: FormEvent<HTMLFormElement>) {
                 <button
                   type="button"
                   disabled={isLoading}
-                  className="text-xs text-[#929894] transition hover:text-[#d7ff3f] disabled:cursor-not-allowed"
+                  className="text-[10px] font-bold uppercase tracking-[0.1em] text-gray-500 transition hover:text-[#c8952a] disabled:cursor-not-allowed"
                   onClick={() =>
                     alert("Password recovery will be implemented later.")
                   }
@@ -138,14 +138,14 @@ function handleSubmit(event: FormEvent<HTMLFormElement>) {
                   placeholder="Enter your password"
                   autoComplete="current-password"
                   disabled={isLoading}
-                  className="w-full rounded-[10px] border border-[#252929] bg-[#090a0a] px-4 py-3 pr-20 text-sm text-white outline-none placeholder:text-[#555b57] transition focus:border-[#d7ff3f] disabled:cursor-not-allowed disabled:opacity-60"
+                  className="w-full border border-[#1a1a1a] bg-[#0a0a0a] px-4 py-3.5 pr-20 text-sm text-white outline-none placeholder:text-gray-600 transition focus:border-[#c8952a] disabled:cursor-not-allowed disabled:opacity-60"
                 />
 
                 <button
                   type="button"
                   disabled={isLoading}
                   onClick={() => setShowPassword((previous) => !previous)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-xs font-medium text-[#929894] transition hover:text-white disabled:cursor-not-allowed"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 text-[10px] font-bold uppercase tracking-widest text-gray-500 transition hover:text-white disabled:cursor-not-allowed"
                 >
                   {showPassword ? "Hide" : "Show"}
                 </button>
@@ -156,30 +156,30 @@ function handleSubmit(event: FormEvent<HTMLFormElement>) {
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full rounded-[10px] bg-[#d7ff3f] px-5 py-3 font-extrabold text-[#080909] transition hover:bg-[#c8ef32] disabled:cursor-not-allowed disabled:opacity-50"
+              className="mt-4 w-full bg-[#e62020] px-6 py-4 text-xs font-bold uppercase tracking-[0.15em] text-white transition hover:bg-red-700 disabled:cursor-not-allowed disabled:opacity-50"
             >
-              {isLoading ? "Signing in..." : "Sign in"}
+              {isLoading ? "Signing in..." : "Sign In →"}
             </button>
           </form>
 
           {/* Development information */}
-          <div className="mt-8 border-t border-[#252929] pt-6">
-            <p className="text-center text-xs leading-5 text-[#626864]">
+          <div className="mt-10 border-t border-[#1a1a1a] pt-8">
+            <p className="text-center text-[10px] uppercase tracking-widest leading-5 text-gray-500">
               Development prototype
               <br />
               Real authentication will be connected later.
             </p>
 
-            <div className="mt-4 rounded-[10px] border border-[#252929] bg-[#090a0a] p-3 text-center">
-              <p className="text-[11px] uppercase tracking-[1px] text-[#626864]">
+            <div className="mt-4 border border-[#1a1a1a] bg-[#0a0a0a] p-4 text-center">
+              <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-[#c8952a]">
                 Development credentials
               </p>
 
-              <p className="mt-2 text-xs text-[#929894]">
+              <p className="mt-3 text-xs text-gray-400">
                 admin@orvillegym.com
               </p>
 
-              <p className="mt-1 text-xs text-[#929894]">
+              <p className="mt-1 text-xs text-gray-400">
                 orville123
               </p>
             </div>
@@ -187,8 +187,8 @@ function handleSubmit(event: FormEvent<HTMLFormElement>) {
         </div>
 
         {/* Footer */}
-        <p className="mt-6 text-center text-xs text-[#555b57]">
-          © 2026 Orville Gym | Suhaffinity.ltd All rights reserved.
+        <p className="mt-8 text-center text-[10px] uppercase tracking-widest text-gray-600">
+          © 2026 Orville Gym | Suhaffinity.ltd
         </p>
       </div>
     </main>

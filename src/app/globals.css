@@ -230,3 +230,281 @@ select:focus-visible {
     padding-right: 20px;
   }
 }
+/* =========================================================
+   ORVILLE HERO INTRO ANIMATIONS
+========================================================= */
+
+@keyframes orvilleStrengthReveal {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes orvilleDisciplineReveal {
+  0% {
+    transform: scale(0.96);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes orvilleDestinyReveal {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes orvilleNavbarReveal {
+  0% {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes orvilleMetaReveal {
+  0% {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Hero words */
+
+.orville-strength {
+  animation:
+    orvilleStrengthReveal
+    1s
+    cubic-bezier(0.16, 1, 0.3, 1)
+    0.35s
+    both;
+}
+
+.orville-discipline {
+  animation:
+    orvilleDisciplineReveal
+    0.8s
+    cubic-bezier(0.16, 1, 0.3, 1)
+    0.15s
+    both;
+}
+
+.orville-destiny {
+  animation:
+    orvilleDestinyReveal
+    1s
+    cubic-bezier(0.16, 1, 0.3, 1)
+    0.35s
+    both;
+}
+
+/* Navbar */
+
+.orville-navbar {
+  animation:
+    orvilleNavbarReveal
+    1s
+    cubic-bezier(0.16, 1, 0.3, 1)
+    1.15s
+    both;
+}
+
+/* Hero supporting content */
+
+.orville-hero-meta {
+  animation:
+    orvilleMetaReveal
+    0.8s
+    cubic-bezier(0.16, 1, 0.3, 1)
+    1.05s
+    both;
+}
+
+.orville-hero-description {
+  animation:
+    orvilleMetaReveal
+    0.8s
+    cubic-bezier(0.16, 1, 0.3, 1)
+    1.25s
+    both;
+}
+
+.orville-hero-actions {
+  animation:
+    orvilleMetaReveal
+    0.8s
+    cubic-bezier(0.16, 1, 0.3, 1)
+    1.4s
+    both;
+}
+
+/* Respect users who prefer reduced motion */
+
+@media (prefers-reduced-motion: reduce) {
+  .orville-strength,
+  .orville-discipline,
+  .orville-destiny,
+  .orville-navbar,
+  .orville-hero-meta,
+  .orville-hero-description,
+  .orville-hero-actions {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+/* =========================================================
+   ORVILLE INTRO ANIMATION
+========================================================= */
+
+@keyframes orvilleNavbarReveal {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.orville-navbar {
+  animation: orvilleNavbarReveal 1s cubic-bezier(0.16, 1, 0.3, 1) 1.15s both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .orville-navbar {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* =========================================================
+   ORVILLE HERO TITLE ANIMATION
+========================================================= */
+
+.orville-hero-title {
+  position: relative;
+  z-index: 2;
+}
+
+/* Mask each word so it can emerge from behind its line */
+
+.orville-word-mask {
+  display: block;
+  overflow: hidden;
+  position: relative;
+}
+
+/* =========================================================
+   DISCIPLINE
+========================================================= */
+
+@keyframes orvilleDisciplineIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.orville-discipline {
+  animation: orvilleDisciplineIn
+    0.8s
+    cubic-bezier(0.16, 1, 0.3, 1)
+    0.1s
+    both;
+}
+
+/* =========================================================
+   STRENGTH — SLIDES UP
+========================================================= */
+
+@keyframes orvilleStrengthIn {
+  0% {
+    opacity: 0;
+    transform: translateY(110%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.orville-strength {
+  animation: orvilleStrengthIn
+    1.2s
+    cubic-bezier(0.16, 1, 0.3, 1)
+    0.35s
+    both;
+}
+
+/* =========================================================
+   DESTINY — SLIDES DOWN
+========================================================= */
+
+@keyframes orvilleDestinyIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-110%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.orville-destiny {
+  animation: orvilleDestinyIn
+    1.2s
+    cubic-bezier(0.16, 1, 0.3, 1)
+    0.35s
+    both;
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .orville-strength,
+  .orville-discipline,
+  .orville-destiny {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}

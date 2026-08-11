@@ -234,20 +234,33 @@ export default function Home() {
               <span>OPEN 06:00 — 23:00</span>
             </div>
 
-            {/* Heading */}
+          {/* Heading */}
+          <div className="orville-hero-title">
             <h1 className="font-display text-[clamp(64px,11vw,170px)] font-black uppercase leading-[0.78] tracking-[-0.045em]">
-              <span className="block text-[#f0ede8]">
-                STRENGTH.
+
+              {/* Strength slides UP */}
+              <span className="orville-word-mask block">
+                <span className="orville-strength block text-[#f0ede8]">
+                  STRENGTH.
+                </span>
               </span>
 
-              <span className="block text-[#cc1414]">
-                DISCIPLINE.
+              {/* Discipline stays in place */}
+              <span className="orville-word-mask block">
+                <span className="orville-discipline block text-[#cc1414]">
+                  DISCIPLINE.
+                </span>
               </span>
 
-              <span className="block text-[#f0ede8]">
-                DESTINY.
+              {/* Destiny slides DOWN */}
+              <span className="orville-word-mask block">
+                <span className="orville-destiny block text-[#f0ede8]">
+                  DESTINY.
+                </span>
               </span>
+
             </h1>
+          </div>
 
             {/* Description */}
             <p className="mt-10 max-w-[570px] text-base leading-7 text-[#f0ede8]/65 md:text-lg">

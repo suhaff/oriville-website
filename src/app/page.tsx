@@ -471,7 +471,7 @@ export default function Home() {
                 </ul>
 
                 <a
-                  href="#contact"
+                  href="/payment"
                   className={`mt-10 block w-full px-6 py-3.5 text-center font-display text-sm font-bold uppercase tracking-[0.15em] transition ${
                     membership.popular
                       ? "bg-[#cc1414] text-white hover:bg-[#e01a1a]"

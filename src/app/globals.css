@@ -508,3 +508,188 @@ select:focus-visible {
     transform: none;
   }
 }
+/* =========================================================
+   ORVILLE PRICING CARDS
+========================================================= */
+
+.pricing-card {
+  position: relative;
+  isolation: isolate;
+  transform: translateY(0) scale(1);
+  transition:
+    transform 450ms cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 450ms ease,
+    box-shadow 450ms ease,
+    background-color 450ms ease;
+}
+
+/* =========================================================
+   CARD HOVER
+========================================================= */
+
+.pricing-card:hover {
+  transform: translateY(-10px) scale(1.015);
+  border-color: rgba(125, 35, 35, 0.75);
+  background-color: #101010;
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.45),
+    0 0 35px rgba(110, 25, 25, 0.16);
+}
+
+/* =========================================================
+   FEATURED CARD
+========================================================= */
+
+.pricing-card-featured {
+  border-color: rgba(92, 25, 25, 0.8);
+}
+
+/* Stronger glow when hovering featured card */
+
+.pricing-card-featured:hover {
+  border-color: rgba(130, 35, 35, 0.95);
+  box-shadow:
+    0 25px 70px rgba(0, 0, 0, 0.5),
+    0 0 25px rgba(125, 25, 25, 0.3),
+    0 0 70px rgba(90, 15, 15, 0.16);
+}
+
+/* =========================================================
+   MOVING MAROON BORDER
+========================================================= */
+
+.pricing-card-border {
+  position: absolute;
+  inset: -2px;
+  z-index: -1;
+  pointer-events: none;
+
+  background:
+    conic-gradient(
+      from 0deg,
+      transparent 0deg,
+      transparent 65deg,
+      #421010 100deg,
+      #7d1c1c 140deg,
+      #4c1111 180deg,
+      transparent 220deg,
+      transparent 360deg
+    );
+
+  animation:
+    pricingBorderRotate
+    5s
+    linear
+    infinite;
+
+  opacity: 0.9;
+}
+
+/* Inner cover */
+
+.pricing-card-border::after {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  background: #0c0c0c;
+}
+
+/* Make the moving border brighter on hover */
+
+.pricing-card-featured:hover .pricing-card-border {
+  opacity: 1;
+
+  filter:
+    drop-shadow(0 0 5px rgba(125, 25, 25, 0.8))
+    drop-shadow(0 0 15px rgba(100, 20, 20, 0.55))
+    drop-shadow(0 0 30px rgba(80, 15, 15, 0.35));
+}
+
+@keyframes pricingBorderRotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* =========================================================
+   PRICING BUTTONS
+========================================================= */
+
+.pricing-button {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Red featured button */
+
+.pricing-card-featured .pricing-button:hover {
+  background-color: #651515;
+  border-color: #8a2020;
+  color: #ffffff;
+
+  transform: scale(1.045);
+
+  box-shadow:
+    0 0 15px rgba(125, 25, 25, 0.5),
+    0 0 35px rgba(100, 20, 20, 0.3);
+}
+
+/* Outline buttons */
+
+.pricing-card:not(.pricing-card-featured) .pricing-button:hover {
+  background-color: #651515;
+  border-color: #8a2020;
+  color: #ffffff;
+
+  transform: scale(1.045);
+
+  box-shadow:
+    0 0 15px rgba(125, 25, 25, 0.5),
+    0 0 35px rgba(100, 20, 20, 0.3);
+}
+
+/* =========================================================
+   BUTTON LIGHT SWEEP
+========================================================= */
+
+.pricing-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 70%;
+  height: 100%;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.08),
+    transparent
+  );
+
+  transform: skewX(-20deg);
+  transition: left 500ms ease;
+}
+
+.pricing-button:hover::before {
+  left: 150%;
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .pricing-card,
+  .pricing-button {
+    transition: none;
+  }
+
+  .pricing-card-border {
+    animation: none;
+  }
+}

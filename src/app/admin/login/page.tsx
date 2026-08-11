@@ -1,56 +1,45 @@
 "use client";
 
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { FormEvent, useState } from "react";
 
 export default function AdminLoginPage() {
+  const router = useRouter();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
   const [showPassword, setShowPassword] = useState(false);
-
   const [error, setError] = useState("");
-
   const [isLoading, setIsLoading] = useState(false);
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
+function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  event.preventDefault();
 
-    setError("");
+  console.log("LOGIN BUTTON WORKED");
+  console.log("Email:", email);
+  console.log("Password:", password);
 
-    if (!email || !password) {
-      setError("Please enter your email and password.");
-      return;
-    }
-
-    setIsLoading(true);
-
-    // Temporary authentication logic.
-    // We will replace this with real authentication later.
-    setTimeout(() => {
-      setIsLoading(false);
-
-      if (
-        email === "admin@orvillegym.com" &&
-        password === "orville123"
-      ) {
-        window.location.href = "/admin/dashboard";
-      } else {
-        setError("Invalid email or password.");
-      }
-    }, 800);
+  if (
+    email.trim().toLowerCase() === "admin@orvillegym.com" &&
+    password === "orville123"
+  ) {
+    console.log("CREDENTIALS CORRECT");
+    router.push("/admin/dashboard");
+  } else {
+    console.log("CREDENTIALS INCORRECT");
+    setError("Invalid email or password.");
   }
+}
 
   return (
     <main className="flex min-h-screen items-center justify-center bg-[#080909] px-6 py-12 text-[#f4f4f1]">
-
       {/* Background glow */}
       <div className="pointer-events-none fixed inset-0">
         <div className="absolute left-1/2 top-1/4 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-[#d7ff3f]/5 blur-[120px]" />
       </div>
 
       <div className="relative w-full max-w-[440px]">
-
         {/* Back to website */}
         <div className="mb-8">
           <Link
@@ -63,17 +52,13 @@ export default function AdminLoginPage() {
 
         {/* Login Card */}
         <div className="rounded-[22px] border border-[#252929] bg-[#111313] p-8 shadow-2xl md:p-10">
-
           {/* Logo */}
           <div className="mb-8">
             <Link
               href="/"
               className="text-[24px] font-black tracking-[-1px]"
             >
-              <span className="text-[#d7ff3f]">
-                ORVILLE
-              </span>{" "}
-              GYM
+              <span className="text-[#d7ff3f]">ORVILLE</span> GYM
             </Link>
           </div>
 
@@ -100,11 +85,7 @@ export default function AdminLoginPage() {
           )}
 
           {/* Form */}
-          <form
-            onSubmit={handleSubmit}
-            className="space-y-5"
-          >
-
+          <form onSubmit={handleSubmit} className="space-y-5">
             {/* Email */}
             <div>
               <label
@@ -118,12 +99,11 @@ export default function AdminLoginPage() {
                 id="email"
                 type="email"
                 value={email}
-                onChange={(event) =>
-                  setEmail(event.target.value)
-                }
+                onChange={(event) => setEmail(event.target.value)}
                 placeholder="admin@orvillegym.com"
                 autoComplete="email"
-                className="w-full rounded-[10px] border border-[#252929] bg-[#090a0a] px-4 py-3 text-sm text-white placeholder:text-[#555b57] transition focus:border-[#d7ff3f]"
+                disabled={isLoading}
+                className="w-full rounded-[10px] border border-[#252929] bg-[#090a0a] px-4 py-3 text-sm text-white outline-none placeholder:text-[#555b57] transition focus:border-[#d7ff3f] disabled:cursor-not-allowed disabled:opacity-60"
               />
             </div>
 
@@ -139,11 +119,10 @@ export default function AdminLoginPage() {
 
                 <button
                   type="button"
-                  className="text-xs text-[#929894] transition hover:text-[#d7ff3f]"
+                  disabled={isLoading}
+                  className="text-xs text-[#929894] transition hover:text-[#d7ff3f] disabled:cursor-not-allowed"
                   onClick={() =>
-                    alert(
-                      "Password recovery will be implemented later."
-                    )
+                    alert("Password recovery will be implemented later.")
                   }
                 >
                   Forgot password?
@@ -153,30 +132,22 @@ export default function AdminLoginPage() {
               <div className="relative">
                 <input
                   id="password"
-                  type={
-                    showPassword
-                      ? "text"
-                      : "password"
-                  }
+                  type={showPassword ? "text" : "password"}
                   value={password}
-                  onChange={(event) =>
-                    setPassword(event.target.value)
-                  }
+                  onChange={(event) => setPassword(event.target.value)}
                   placeholder="Enter your password"
                   autoComplete="current-password"
-                  className="w-full rounded-[10px] border border-[#252929] bg-[#090a0a] px-4 py-3 pr-20 text-sm text-white placeholder:text-[#555b57] transition focus:border-[#d7ff3f]"
+                  disabled={isLoading}
+                  className="w-full rounded-[10px] border border-[#252929] bg-[#090a0a] px-4 py-3 pr-20 text-sm text-white outline-none placeholder:text-[#555b57] transition focus:border-[#d7ff3f] disabled:cursor-not-allowed disabled:opacity-60"
                 />
 
                 <button
                   type="button"
-                  onClick={() =>
-                    setShowPassword(!showPassword)
-                  }
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-xs font-medium text-[#929894] transition hover:text-white"
+                  disabled={isLoading}
+                  onClick={() => setShowPassword((previous) => !previous)}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-xs font-medium text-[#929894] transition hover:text-white disabled:cursor-not-allowed"
                 >
-                  {showPassword
-                    ? "Hide"
-                    : "Show"}
+                  {showPassword ? "Hide" : "Show"}
                 </button>
               </div>
             </div>
@@ -187,11 +158,8 @@ export default function AdminLoginPage() {
               disabled={isLoading}
               className="w-full rounded-[10px] bg-[#d7ff3f] px-5 py-3 font-extrabold text-[#080909] transition hover:bg-[#c8ef32] disabled:cursor-not-allowed disabled:opacity-50"
             >
-              {isLoading
-                ? "Signing in..."
-                : "Sign in"}
+              {isLoading ? "Signing in..." : "Sign in"}
             </button>
-
           </form>
 
           {/* Development information */}
@@ -201,8 +169,21 @@ export default function AdminLoginPage() {
               <br />
               Real authentication will be connected later.
             </p>
-          </div>
 
+            <div className="mt-4 rounded-[10px] border border-[#252929] bg-[#090a0a] p-3 text-center">
+              <p className="text-[11px] uppercase tracking-[1px] text-[#626864]">
+                Development credentials
+              </p>
+
+              <p className="mt-2 text-xs text-[#929894]">
+                admin@orvillegym.com
+              </p>
+
+              <p className="mt-1 text-xs text-[#929894]">
+                orville123
+              </p>
+            </div>
+          </div>
         </div>
 
         {/* Footer */}

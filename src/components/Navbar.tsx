@@ -144,12 +144,12 @@ export default function Navbar() {
 
           </div>
 
-          {/* Login */}
+          {/* Admin Dashboard */}
           <Link
-            href="/admin/login"
+            href="/admin/dashboard"
             className="font-display border border-[#f0ede8]/20 px-[18px] py-2 text-[14px] font-semibold uppercase tracking-[0.12em] text-[#f0ede8] transition hover:border-[#f0ede8]/60"
           >
-            Log In
+            Admin
           </Link>
 
           {/* Join */}
@@ -190,11 +190,11 @@ export default function Navbar() {
           ))}
 
           <Link
-            href="/admin/login"
+            href="/admin/dashboard"
             onClick={() => setMobileOpen(false)}
             className="block border-b border-[#1c1c1c] py-2.5 font-display text-lg font-semibold uppercase tracking-[0.12em] text-[#f0ede8]"
           >
-            Log In
+            Admin
           </Link>
 
           <Link

@@ -151,7 +151,7 @@ export default function UserDashboardPage() {
                     MMA ADULTS
                   </h2>
                   <p className="mt-1 text-xl font-black text-[#e62020]">
-                    $89 <span className="text-xs font-normal text-gray-500 uppercase">/ month</span>
+                    ₹2,500 <span className="text-xs font-normal text-gray-500 uppercase">/ month</span>
                   </p>
                 </div>
                 <span className="border border-[#e62020]/40 bg-[#e62020]/10 px-3 py-1 text-[10px] font-bold tracking-[0.15em] text-[#e62020] uppercase">

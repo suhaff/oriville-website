@@ -86,11 +86,11 @@ export default function Navbar() {
           className="flex items-center gap-2.5"
         >
           <Image
-            src="/images/orville_logo.png"
+            src="../orille_logo.png"
             alt="Orville Gym"
             width={44}
             height={44}
-            className="object-contain"
+            className="h-11 w-11 object-contain"
             priority
           />
 

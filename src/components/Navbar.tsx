@@ -86,7 +86,7 @@ export default function Navbar() {
           className="flex items-center gap-2.5"
         >
           <Image
-            src="../orille_logo.png"
+            src="/orville_logo.png"
             alt="Orville Gym"
             width={44}
             height={44}
@@ -144,21 +144,13 @@ export default function Navbar() {
 
           </div>
 
-          {/* Admin Dashboard */}
+          {/* Login */}
           <Link
-            href="/admin/dashboard"
-            className="font-display border border-[#f0ede8]/20 px-[18px] py-2 text-[14px] font-semibold uppercase tracking-[0.12em] text-[#f0ede8] transition hover:border-[#f0ede8]/60"
-          >
-            Admin
-          </Link>
-
-          {/* Join */}
-          <Link
-            href="#pricing"
+            href="/login"
             className="font-display px-[22px] py-2.5 text-[14px] font-bold uppercase tracking-[0.14em] text-white transition hover:opacity-85"
             style={{ backgroundColor: RED }}
           >
-            Join Now
+            Log In
           </Link>
         </div>
 
@@ -190,20 +182,12 @@ export default function Navbar() {
           ))}
 
           <Link
-            href="/admin/dashboard"
-            onClick={() => setMobileOpen(false)}
-            className="block border-b border-[#1c1c1c] py-2.5 font-display text-lg font-semibold uppercase tracking-[0.12em] text-[#f0ede8]"
-          >
-            Admin
-          </Link>
-
-          <Link
-            href="#pricing"
+            href="/login"
             onClick={() => setMobileOpen(false)}
             className="block border-b border-[#1c1c1c] py-2.5 font-display text-lg font-bold uppercase tracking-[0.12em]"
             style={{ color: RED }}
           >
-            Join Now
+            Log In
           </Link>
 
           <div className="flex gap-5 pt-5 text-[#f0ede8]/50">
